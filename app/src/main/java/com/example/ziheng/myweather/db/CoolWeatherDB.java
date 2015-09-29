@@ -1,13 +1,13 @@
-package com.example.ziheng.coolweather.db;
+package com.example.ziheng.myweather.db;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.ziheng.coolweather.model.City;
-import com.example.ziheng.coolweather.model.County;
-import com.example.ziheng.coolweather.model.Province;
+import com.example.ziheng.myweather.model.City;
+import com.example.ziheng.myweather.model.County;
+import com.example.ziheng.myweather.model.Province;
 
 import java.util.ArrayList;
 import java.util.List;

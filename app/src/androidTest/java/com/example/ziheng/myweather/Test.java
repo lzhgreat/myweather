@@ -1,10 +1,10 @@
-package com.example.ziheng.coolweather;
+package com.example.ziheng.myweather;
 
 import android.test.InstrumentationTestCase;
 import android.util.Log;
 
-import com.example.ziheng.coolweather.util.HttpCallbackListener;
-import com.example.ziheng.coolweather.util.HttpUtil;
+import com.example.ziheng.myweather.util.HttpCallbackListener;
+import com.example.ziheng.myweather.util.HttpUtil;
 
 /**
  * Created by ziheng on 2015/9/28 0028.

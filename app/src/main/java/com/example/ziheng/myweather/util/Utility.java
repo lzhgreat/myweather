@@ -1,14 +1,14 @@
-package com.example.ziheng.coolweather.util;
+package com.example.ziheng.myweather.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
-import com.example.ziheng.coolweather.db.CoolWeatherDB;
-import com.example.ziheng.coolweather.model.City;
-import com.example.ziheng.coolweather.model.County;
-import com.example.ziheng.coolweather.model.Province;
+import com.example.ziheng.myweather.db.CoolWeatherDB;
+import com.example.ziheng.myweather.model.City;
+import com.example.ziheng.myweather.model.County;
+import com.example.ziheng.myweather.model.Province;
 
 import org.json.JSONException;
 import org.json.JSONObject;

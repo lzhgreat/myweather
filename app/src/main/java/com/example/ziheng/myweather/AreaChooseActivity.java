@@ -1,4 +1,4 @@
-package com.example.ziheng.coolweather;
+package com.example.ziheng.myweather;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -10,19 +10,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ziheng.coolweather.db.CoolWeatherDB;
-import com.example.ziheng.coolweather.model.City;
-import com.example.ziheng.coolweather.model.County;
-import com.example.ziheng.coolweather.model.Province;
-import com.example.ziheng.coolweather.util.HttpCallbackListener;
-import com.example.ziheng.coolweather.util.HttpUtil;
-import com.example.ziheng.coolweather.util.Utility;
+import com.example.ziheng.myweather.db.CoolWeatherDB;
+import com.example.ziheng.myweather.model.City;
+import com.example.ziheng.myweather.model.County;
+import com.example.ziheng.myweather.model.Province;
+import com.example.ziheng.myweather.util.HttpCallbackListener;
+import com.example.ziheng.myweather.util.HttpUtil;
+import com.example.ziheng.myweather.util.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherActivity extends AppCompatActivity {
-    public static final int LEVEL_PROVIENCE = 0;
+public class AreaChooseActivity extends AppCompatActivity {
+    public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
     public static final int LEVEL_COUNTY = 2;
 
@@ -47,7 +47,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_areachoose);
         tittle = (TextView) findViewById(R.id.title);
         lv = (ListView) findViewById(R.id.lv);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datalist);
@@ -57,7 +57,7 @@ public class WeatherActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 switch (currentLevel) {
-                    case LEVEL_PROVIENCE:
+                    case LEVEL_PROVINCE:
                         selectedProvince = provinceList.get(i);
                         queryCity();
                         break;
@@ -85,7 +85,7 @@ public class WeatherActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
             lv.setSelection(0);
             tittle.setText("中国");
-            currentLevel = LEVEL_PROVIENCE;
+            currentLevel = LEVEL_PROVINCE;
         } else {
             queryFromServer(null, "province");
         }
@@ -174,7 +174,7 @@ public class WeatherActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         closeProgressDialog();
-                        Toast.makeText(WeatherActivity.this,
+                        Toast.makeText(AreaChooseActivity.this,
                                 "加载失败", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -1,4 +1,4 @@
-package com.example.ziheng.coolweather.db;
+package com.example.ziheng.myweather.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

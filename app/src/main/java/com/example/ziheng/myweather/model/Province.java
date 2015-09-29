@@ -1,4 +1,4 @@
-package com.example.ziheng.coolweather.model;
+package com.example.ziheng.myweather.model;
 
 public class Province {
 

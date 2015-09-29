@@ -1,4 +1,4 @@
-package com.example.ziheng.coolweather.util;
+package com.example.ziheng.myweather.util;
 
 import android.util.Log;
 
