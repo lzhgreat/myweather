@@ -123,6 +123,7 @@ public class Utility {
         editor.putString("temp2", temp2);
         editor.putString("weather_desp", weatherDesp);
         editor.putString("publish_time", publishTime);
+        //用途？
         editor.putString("current_date", sdf.format(new Date()));
         editor.commit();
     }

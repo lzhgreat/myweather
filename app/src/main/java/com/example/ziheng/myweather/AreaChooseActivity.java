@@ -1,7 +1,10 @@
 package com.example.ziheng.myweather;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +28,10 @@ public class AreaChooseActivity extends AppCompatActivity {
     public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
     public static final int LEVEL_COUNTY = 2;
+    /**
+     * 是否跳转自WeatherActivity
+     */
+    private boolean isFromWeatherActivity;
 
     private int currentLevel;
 
@@ -43,6 +50,17 @@ public class AreaChooseActivity extends AppCompatActivity {
     private Province selectedProvince;
     private City selectedCity;
     private County selectedCounty;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("city_selected", false) && (!isFromWeatherActivity)) {
+            startActivity(new Intent(this, WeatherActivity.class));
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +84,11 @@ public class AreaChooseActivity extends AppCompatActivity {
                         queryCounty();
                         break;
                     case LEVEL_COUNTY:
+                        selectedCounty = countyList.get(i);
+                        Intent intent = new Intent(getApplicationContext(), WeatherActivity.class);
+                        intent.putExtra("county_code", selectedCounty.getCountyCode());
+                        startActivity(intent);
+                        finish();
                         break;
                 }
             }
